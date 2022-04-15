@@ -33,6 +33,7 @@ struct AccountView: View {
                     if accountViewModel.accountResponse != nil {
                         ZStack{
                             Color.black.opacity(0.8)
+                                .ignoresSafeArea()
                             VStack {
                                 Text("Linked Accounts")
                                         .font(.title2)
@@ -45,13 +46,12 @@ struct AccountView: View {
                                     .resizable()
                                     .frame( width: 150, height:120)
                             }
-                            .offset(y:30)
+                            .offset(y:-20)
                         }
-                        .offset(y:-200)
-                            .foregroundColor(.white)
-                        .offset(y: 45)
+                        .offset(y: -50)
+                        .foregroundColor(.white)
                         ScrollView{
-                            VStack(alignment: .leading, spacing: 4){
+                            LazyVStack(alignment: .leading, spacing: 4){
                                 ForEach(accountViewModel.accountResponse!, id: \.accountId) { account in
                                     NavigationLink(destination: TransactionView(jwt: token, accountId:account.accountId)) {
                                         HStack{
@@ -70,7 +70,6 @@ struct AccountView: View {
                                                         .font(.body)
                                                     Image(systemName: "chevron.forward")
                                                         .offset(y: 20)
-                                                    
                                                 }
                                                 Text(account.type)
                                                     .font(.subheadline)
@@ -79,7 +78,6 @@ struct AccountView: View {
                                             }
                                         }
                                         .offset(x: -30)
-                                        
                                     }
                                     .foregroundColor(Color.black)
                                     
@@ -90,7 +88,7 @@ struct AccountView: View {
                                 .shadow(color: Color.black, radius: 2, x: 0.6, y: 1)
                             }
                         }
-                        .offset(y: -150)
+                        .offset(y: -55)
                     } else{
                         Text("Loading Accounts")
                             .font(.title2)

@@ -82,10 +82,10 @@ struct LoginView: View {
             }
             .padding()
             .background(Color.white)
-            .frame(height: 550)
+            .frame(height: 580)
             .clipped()
             .shadow(color: Color.black, radius: 2, x: 0.6, y: 1)
-            .offset(y: -80)
+            .offset(y: -60)
         }
     }
     
