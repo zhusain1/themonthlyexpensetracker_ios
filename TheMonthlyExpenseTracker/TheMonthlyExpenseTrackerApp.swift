@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct TheMonthlyExpenseTrackerApp: App {
     
-    @StateObject var authenticationViewModel = AuthenticationViewModel()
+    @StateObject var authenticationViewModel =  AuthenticationViewModel()
     
     var body: some Scene {
         WindowGroup {

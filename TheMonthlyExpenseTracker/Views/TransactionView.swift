@@ -30,30 +30,30 @@ struct TransactionView: View {
     var body: some View {
         VStack{
             if(transactionViewModel.transactonsResponse != nil){
-                Text("Account Balance: \(displayAccountBalance(balance: transactionViewModel.transactonsResponse!.accountResponse.balance))")
-                    .font(.title3)
-                    .bold()
-                Text("Monthly Gained: \(displayAccountBalance(balance:transactionViewModel.monthlySaved()))")
-                    .font(.title3)
-                    .bold()
-                    .padding()
-                Text("Monthly Spent: \(displayAccountBalance(balance:transactionViewModel.monthlySpent()))")
-                    .font(.title3)
-                    .bold()
-                    .padding()
-                Text("Monthly Balance: \(displayAccountBalance(balance:transactionViewModel.monthlySaved() + transactionViewModel.monthlySpent()))")
-                    .font(.title3)
-                    .bold()
-                    .padding()
-                HStack{
-                    Text("Choose Month")
-                    Spacer()
-                    Picker("Months", selection: $transactionViewModel.month) {
+                
+                List{
+                    Text("Account Balance: \(displayAccountBalance(balance: transactionViewModel.transactonsResponse!.accountResponse.balance))")
+                        .font(.title3)
+                        .bold()
+                    Text("Monthly Gained: \(displayAccountBalance(balance:transactionViewModel.monthlySaved()))")
+                        .font(.title3)
+                        .bold()
+                    Text("Monthly Spent: \(displayAccountBalance(balance:transactionViewModel.monthlySpent()))")
+                        .font(.title3)
+                        .bold()
+                    Text("Monthly Balance: \(displayAccountBalance(balance:transactionViewModel.monthlySaved() + transactionViewModel.monthlySpent()))")
+                        .font(.title3)
+                        .bold()
+                    Picker("Choose Month", selection: $transactionViewModel.month) {
                         ForEach(months, id: \.self) { displayMonth in
                             Text(displayMonth)
                         }
                     }
-                }.padding()
+                    .listRowInsets(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 25))
+                }
+                .offset(y: -5)
+                
+    
                 List{
                     ForEach(transactionViewModel.filterTransactionsByMonth(), id: \.self) { transaction in
                         VStack(alignment: .leading){
@@ -96,6 +96,6 @@ struct TransactionView: View {
 
 struct TransactionView_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionView(jwt:"eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Inp1bGZpaHVzYWluMTk5NkBnbWFpbC5jb20iLCJzdWIiOiJadWxmZWthciBIdXNhaW4iLCJqdGkiOiI3NjUwYmQ5ZS0yYjJkLTRkZGQtODVjNy03YzlhN2I1YjkzMDgiLCJpYXQiOjE2NDk0NDY0MTcsImV4cCI6MTY0OTQ1NzIxN30.WfQH6aChEvzP-02g5YKJkIJN3Pc1SNwA7a26ilRkg7I",accountId:"dZjwP67YwVc9mPeoK5AQUd7R1we5MYU4kny0A")
+        TransactionView(jwt:"eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Inp1bGZpaHVzYWluMTk5NkBnbWFpbC5jb20iLCJzdWIiOiJadWxmZWthciBIdXNhaW4iLCJqdGkiOiJmZTEyZmUwMC0xYmIzLTRiOTQtYWEzMy03YTk3ODNjYTQ0NzEiLCJpYXQiOjE2NDk5MTAxNjIsImV4cCI6MTY0OTkyMDk2Mn0.4hO4EsxO7tnYJ7sG1itgZGEOIr6hFOqSlOQtunY80Mc",accountId:"dZjwP67YwVc9mPeoK5AQUd7R1we5MYU4kny0A")
     }
 }

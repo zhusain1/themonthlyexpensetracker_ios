@@ -4,6 +4,10 @@
 <dict>
 	<key>CFBundleIcons</key>
 	<dict/>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Login with Face ID</string>
+	<key>CFBundleDisplayName</key>
+	<string>The Monthly Expense Tracker</string>
 	<key>CFBundleIcons~ipad</key>
 	<dict/>
 </dict>

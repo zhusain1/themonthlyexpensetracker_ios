@@ -14,9 +14,12 @@
 		B50B517C27FE024700CC3008 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50B517B27FE024700CC3008 /* AccountView.swift */; };
 		B51A92FE27FE3DEE00E25A1D /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51A92FD27FE3DEE00E25A1D /* AccountViewModel.swift */; };
 		B51A930027FE3E6200E25A1D /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51A92FF27FE3E6200E25A1D /* AccountService.swift */; };
+		B52CE8F0280526AC003764D1 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = B52CE8EF280526AC003764D1 /* SwiftKeychainWrapper */; };
+		B52CE8F32805271B003764D1 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52CE8F22805271B003764D1 /* KeychainService.swift */; };
 		B54CF80427FA4DF500E1039F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54CF80327FA4DF500E1039F /* HomeView.swift */; };
 		B54CF80827FBBBA000E1039F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54CF80727FBBBA000E1039F /* UserService.swift */; };
 		B56DEE8827FFFE20005A1957 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56DEE8727FFFE20005A1957 /* GlobalFunctions.swift */; };
+		B579CB0B280657CB00CE7551 /* Biometric.swift in Sources */ = {isa = PBXBuildFile; fileRef = B579CB0A280657CB00CE7551 /* Biometric.swift */; };
 		B587A49E27FDCBF3006DFC6D /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587A49D27FDCBF3006DFC6D /* ServiceError.swift */; };
 		B587A4A027FDD435006DFC6D /* SetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587A49F27FDD435006DFC6D /* SetupViewModel.swift */; };
 		B5B37D4827FFB534006F3C2C /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B37D4727FFB534006F3C2C /* TransactionView.swift */; };
@@ -27,6 +30,7 @@
 		B5BA357027FA1E400047973D /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA356F27FA1E400047973D /* AuthenticationViewModel.swift */; };
 		B5CA9E4F27FC9D210052CCA5 /* Webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CA9E4E27FC9D210052CCA5 /* Webview.swift */; };
 		B5E6BF0128010F8400877A74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5E6BF0028010F8400877A74 /* LaunchScreen.storyboard */; };
+		B5ECC5752807F7A10090B5C5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ECC5742807F7A10090B5C5 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,10 +42,12 @@
 		B50B517B27FE024700CC3008 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		B51A92FD27FE3DEE00E25A1D /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		B51A92FF27FE3E6200E25A1D /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		B52CE8F22805271B003764D1 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		B54CF80327FA4DF500E1039F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B54CF80727FBBBA000E1039F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		B54DCC3127FE9CA20084E355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B56DEE8727FFFE20005A1957 /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
+		B579CB0A280657CB00CE7551 /* Biometric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biometric.swift; sourceTree = "<group>"; };
 		B587A49D27FDCBF3006DFC6D /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		B587A49F27FDD435006DFC6D /* SetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewModel.swift; sourceTree = "<group>"; };
 		B5B37D4727FFB534006F3C2C /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
@@ -52,6 +58,7 @@
 		B5BA356F27FA1E400047973D /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		B5CA9E4E27FC9D210052CCA5 /* Webview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webview.swift; sourceTree = "<group>"; };
 		B5E6BF0028010F8400877A74 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B5ECC5742807F7A10090B5C5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52CE8F0280526AC003764D1 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +92,8 @@
 		B503DBAA27FA01FA00B7E901 /* TheMonthlyExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				B579CB09280657B100CE7551 /* Biometric */,
+				B52CE8F128052708003764D1 /* Service */,
 				B56DEE8627FFFDF5005A1957 /* Util */,
 				B54DCC3127FE9CA20084E355 /* Info.plist */,
 				B587A49C27FDCBC7006DFC6D /* Errors */,
@@ -104,6 +114,14 @@
 				B503DBB227FA01FD00B7E901 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B52CE8F128052708003764D1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B52CE8F22805271B003764D1 /* KeychainService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		B54CF80527FB66F300E1039F /* ViewModel */ = {
@@ -131,8 +149,17 @@
 			isa = PBXGroup;
 			children = (
 				B56DEE8727FFFE20005A1957 /* GlobalFunctions.swift */,
+				B5ECC5742807F7A10090B5C5 /* Color.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		B579CB09280657B100CE7551 /* Biometric */ = {
+			isa = PBXGroup;
+			children = (
+				B579CB0A280657CB00CE7551 /* Biometric.swift */,
+			);
+			path = Biometric;
 			sourceTree = "<group>";
 		};
 		B587A49C27FDCBC7006DFC6D /* Errors */ = {
@@ -182,6 +209,7 @@
 			);
 			name = TheMonthlyExpenseTracker;
 			packageProductDependencies = (
+				B52CE8EF280526AC003764D1 /* SwiftKeychainWrapper */,
 			);
 			productName = TheMonthlyExpenseTracker;
 			productReference = B503DBA827FA01FA00B7E901 /* TheMonthlyExpenseTracker.app */;
@@ -212,6 +240,7 @@
 			);
 			mainGroup = B503DB9F27FA01FA00B7E901;
 			packageReferences = (
+				B52CE8EE280526AC003764D1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 			);
 			productRefGroup = B503DBA927FA01FA00B7E901 /* Products */;
 			projectDirPath = "";
@@ -245,6 +274,7 @@
 				B503DBAE27FA01FA00B7E901 /* LoginView.swift in Sources */,
 				B5BA357027FA1E400047973D /* AuthenticationViewModel.swift in Sources */,
 				B54CF80827FBBBA000E1039F /* UserService.swift in Sources */,
+				B52CE8F32805271B003764D1 /* KeychainService.swift in Sources */,
 				B5B37D4E27FFD8AB006F3C2C /* TransactionRequest.swift in Sources */,
 				B51A92FE27FE3DEE00E25A1D /* AccountViewModel.swift in Sources */,
 				B50B517C27FE024700CC3008 /* AccountView.swift in Sources */,
@@ -252,7 +282,9 @@
 				B503DBAC27FA01FA00B7E901 /* TheMonthlyExpenseTrackerApp.swift in Sources */,
 				B54CF80427FA4DF500E1039F /* HomeView.swift in Sources */,
 				B51A930027FE3E6200E25A1D /* AccountService.swift in Sources */,
+				B5ECC5752807F7A10090B5C5 /* Color.swift in Sources */,
 				B5BA356B27FA10630047973D /* UserRequest.swift in Sources */,
+				B579CB0B280657CB00CE7551 /* Biometric.swift in Sources */,
 				B5B37D4A27FFB5DA006F3C2C /* TransactionsService.swift in Sources */,
 				B56DEE8827FFFE20005A1957 /* GlobalFunctions.swift in Sources */,
 				B5CA9E4F27FC9D210052CCA5 /* Webview.swift in Sources */,
@@ -468,6 +500,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B52CE8EE280526AC003764D1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B52CE8EF280526AC003764D1 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B52CE8EE280526AC003764D1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B503DBA027FA01FA00B7E901 /* Project object */;
 }

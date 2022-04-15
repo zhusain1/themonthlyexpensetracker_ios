@@ -41,5 +41,4 @@ class UserService{
             throw ServiceError.InvalidRequest
         }
     }
-    
 }

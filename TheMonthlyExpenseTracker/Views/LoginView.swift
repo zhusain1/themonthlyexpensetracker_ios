@@ -11,42 +11,82 @@ struct LoginView: View {
     
     @EnvironmentObject var userRequestViewModel : AuthenticationViewModel
     
+    @State var errorMessage = "Invalid Login. Please try again"
+    
     var body: some View {
-        
-        VStack(
-            spacing: -20
-        ){
-           Branding()
-            VStack{
-                if userRequestViewModel.loginError{
-                    HStack{
-                        Image(systemName: "exclamationmark.circle.fill")
-                        Text("Invalid Login. Please try again")
-                            .fontWeight(.bold)
-                            .padding()
+        ZStack{
+            Color.bg
+                .ignoresSafeArea()
+            VStack(
+                spacing: -20
+            ){
+                Branding()
+                VStack{
+                    if userRequestViewModel.loginError{
+                        HStack{
+                            Image(systemName: "exclamationmark.circle.fill")
+                            Text(errorMessage)
+                                .fontWeight(.bold)
+                                .padding()
+                        }
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red)
+                        .foregroundColor(Color.white)
                     }
-                    .frame(maxWidth: .infinity)
-                    .background(Color.red)
-                    .foregroundColor(Color.white)
-                }
-                Fields().environmentObject(userRequestViewModel)
-                Button("Login", action:{
-                    Task{
-                        await userRequestViewModel.loginSubmit()
-                    }
-                })
+                    Fields().environmentObject(userRequestViewModel)
+                    Button("Login", action:{
+                        Task{
+                            await userRequestViewModel.loginSubmit()
+                        }
+                        
+                        if userRequestViewModel.loginError{
+                            errorMessage = "Invalid Login. Please try again"
+                        }
+                    })
                     .padding()
                     .frame(width: 300)
                     .background(
-                       changeButtonColor()
+                        changeButtonColor()
                     )
                     .font(.title3.bold())
                     .cornerRadius(25)
                     .foregroundColor(Color.white)
                     .disabled(validateButton())
-                Spacer()
+                    Button(
+                        action:{
+                            userRequestViewModel.loginBiometric() { (result:Result<Bool,BioError>) in
+                                switch result {
+                                case .success:
+                                    Task{
+                                        await userRequestViewModel.loginSubmit()
+                                    }
+                                case .failure:
+                                    errorMessage = "Face ID unavailable"
+                                }
+                            }
+                            
+                        },
+                        label:{
+                            if(!biometricType().isEmpty){
+                                VStack{
+                                    Image(systemName: biometricType())
+                                        .resizable()
+                                        .frame(width: 40, height: 40)
+                                }
+                            }
+                        }
+                    )
+                    .padding()
+                    Spacer()
+                }
             }
-        }.offset(y: -30)
+            .padding()
+            .background(Color.white)
+            .frame(height: 550)
+            .clipped()
+            .shadow(color: Color.black, radius: 2, x: 0.6, y: 1)
+            .offset(y: -80)
+        }
     }
     
     func changeButtonColor() -> Color{
@@ -56,6 +96,7 @@ struct LoginView: View {
             return Color.gray
         }
     }
+    
     
     func validateButton() -> Bool{
         if !userRequestViewModel.userRequest.email.isEmpty && !userRequestViewModel.userRequest.password.isEmpty{
@@ -115,13 +156,17 @@ struct Branding: View{
                 .frame(width: 150, height: 200, alignment: .leading)
             Text("The Monthly Expense Tracker")
                 .bold()
-                .font(.title2)
+                .font(.title3)
         }
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
+    
+    static let vm = AuthenticationViewModel()
+    
     static var previews: some View {
-        LoginView()
+        
+        LoginView().environmentObject(vm)
     }
 }
