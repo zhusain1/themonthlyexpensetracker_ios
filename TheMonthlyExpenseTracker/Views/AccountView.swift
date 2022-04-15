@@ -51,42 +51,7 @@ struct AccountView: View {
                         .offset(y: -50)
                         .foregroundColor(.white)
                         ScrollView{
-                            LazyVStack(alignment: .leading, spacing: 4){
-                                ForEach(accountViewModel.accountResponse!, id: \.accountId) { account in
-                                    NavigationLink(destination: TransactionView(jwt: token, accountId:account.accountId)) {
-                                        HStack{
-                                            Image(systemName: "banknote")
-                                                .offset(x: 40)
-                                            Text(account.name)
-                                                .fontWeight(.bold)
-                                                .padding()
-                                                .font(.title3)
-                                                .offset(x: 30)
-                                            Spacer()
-                                            VStack{
-                                                HStack{
-                                                    Text(displayAccountBalance(balance: account.balance))
-                                                        .padding()
-                                                        .font(.body)
-                                                    Image(systemName: "chevron.forward")
-                                                        .offset(y: 20)
-                                                }
-                                                Text(account.type)
-                                                    .font(.subheadline)
-                                                    .padding(.bottom, 10)
-                                                
-                                            }
-                                        }
-                                        .offset(x: -30)
-                                    }
-                                    .foregroundColor(Color.black)
-                                    
-                                }
-                                .background(Color.white)
-                                .clipped()
-                                .padding()
-                                .shadow(color: Color.black, radius: 2, x: 0.6, y: 1)
-                            }
+                            AccountList(accountViewModel: accountViewModel, token: token)
                         }
                         .offset(y: -55)
                     } else{
@@ -106,5 +71,55 @@ struct AccountView: View {
 struct Account_Previews: PreviewProvider {
     static var previews: some View {
         AccountView(jwt: "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Inp1bGZpaHVzYWluMTk5NkBnbWFpbC5jb20iLCJzdWIiOiJadWxmZWthciBIdXNhaW4iLCJqdGkiOiJmMjg0Zjk5My1lMGRkLTQ0ZjMtYTlmOS01Y2NjOTY4YTlkNjgiLCJpYXQiOjE2NDk5ODEzNDYsImV4cCI6MTY0OTk5MjE0Nn0.McaCy0GgaqUFizAdJYgvG0tG5GPG5I5tq0-M7kVwjuM")
+    }
+}
+
+struct AccountList: View {
+    
+    var accountViewModel: AccountViewModel
+    var token: String
+    
+    init(accountViewModel:AccountViewModel, token: String){
+        self.accountViewModel = accountViewModel
+        self.token = token
+    }
+    
+    var body: some View {
+        LazyVStack(alignment: .leading, spacing: 4){
+            ForEach(accountViewModel.accountResponse!, id: \.accountId) { account in
+                NavigationLink(destination: TransactionView(jwt: token, accountId:account.accountId)) {
+                    HStack{
+                        Image(systemName: "banknote")
+                            .offset(x: 40)
+                        Text(account.name)
+                            .fontWeight(.bold)
+                            .padding()
+                            .font(.title3)
+                            .offset(x: 30)
+                        Spacer()
+                        VStack{
+                            HStack{
+                                Text(displayAccountBalance(balance: account.balance))
+                                    .padding()
+                                    .font(.body)
+                                Image(systemName: "chevron.forward")
+                                    .offset(y: 20)
+                            }
+                            Text(account.type)
+                                .font(.subheadline)
+                                .padding(.bottom, 10)
+                            
+                        }
+                    }
+                    .offset(x: -30)
+                }
+                .foregroundColor(Color.black)
+                
+            }
+            .background(Color.white)
+            .clipped()
+            .padding()
+            .shadow(color: Color.black, radius: 2, x: 0.6, y: 1)
+        }
     }
 }
